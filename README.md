@@ -26,14 +26,6 @@ frontend/index.html
 
 Make sure the backend is running or deployed before using the frontend.
 
-## 🔗 Live API
-
-Base URL:
-https://bfhl-project-k3ti.onrender.com
-
-Endpoint:
-POST /bfhl
-
 ## 📌 Features
 
 - Accepts hierarchy input (e.g., `A->B, A->C, B->D`)
