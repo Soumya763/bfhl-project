@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BFHL Analyzer</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    pre {
+      background: #222;
+      color: #0f0;
+      padding: 10px;
+      margin-top: 20px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Hierarchy Analyzer</h2>
+
+  <textarea id="input" rows="5">
+A->B,A->C,B->D
+  </textarea>
+
+  <br>
+  <button onclick="submitData()">Submit</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    async function submitData() {
+      try {
+        const raw = document.getElementById("input").value;
+        const data = raw.split(",").map(x => x.trim());
+
+        const res = await fetch("http://localhost:3000/bfhl", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ data })
+        });
+
+        const json = await res.json();
+
+        document.getElementById("output").innerText =
+          JSON.stringify(json, null, 2);
+
+      } catch (err) {
+        document.getElementById("output").innerText =
+          "Error connecting to backend ❌";
+      }
+    }
+  </script>
+
+</body>
+</html>
