@@ -17,6 +17,22 @@ POST /bfhl
 
 
 ---
+## 🖥️ Frontend
+
+The frontend for this project was tested locally and is not deployed.
+
+You can run it locally by opening:
+frontend/index.html
+
+Make sure the backend is running or deployed before using the frontend.
+
+## 🔗 Live API
+
+Base URL:
+https://bfhl-project-k3ti.onrender.com
+
+Endpoint:
+POST /bfhl
 
 ## 📌 Features
 
